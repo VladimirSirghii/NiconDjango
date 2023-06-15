@@ -1,0 +1,30 @@
+.home__image{
+    margin-left: 40px;
+    margin-bottom: 15px;
+    width: 400px;
+    height: 400px;
+    float: right;
+}
+.benefits-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .benefits-container h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .benefits-list {
+    list-style: none;
+    margin-top: 20px;
+  }
+
+  .benefit-item {
+    margin-bottom: 10px;
+  }
+
+  .benefit-item h4 {
+    color: #555;
+  }

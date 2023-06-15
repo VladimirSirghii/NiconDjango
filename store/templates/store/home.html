@@ -1,0 +1,63 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<header>
+    <h1>Bun venit pe site-ul meu!</h1>
+    <img class="home__image" src="{% static 'images/Nicon.jpg' %}" alt="Imaginea mea">
+  </header>
+  <div class="content">
+    <h2> Sunt Nicon, un student pasionat de informatică și dezvoltare web. Aici, îți prezint lucrările mele și abilitățile ca administrator web</h2>
+    <p>În timpul meu la colegiul de Informatică, am avut oportunitatea să învăț și să aplic diverse tehnologii și framework-uri, construind proiecte remarcabile. Acest site este un fel de portofoliu online, unde îți pot arăta creațiile mele și progresele pe care le-am făcut în domeniul dezvoltării web.
+
+      Pe parcursul stagiului meu de practică, am lucrat la realizarea unui magazin online personalizat, în care am aplicat cele mai bune practici și am pus în aplicare cunoștințele mele în design web și dezvoltare. Aici vei găsi detalii despre proiectul meu, precum și informații despre cum am abordat diverse provocări tehnice.
+      
+      În plus, sunt deschis la noi oportunități și colaborări. Dacă ești interesat de un proiect web sau ai întrebări legate de dezvoltarea site-urilor, nu ezita să mă contactezi. Sunt nerăbdător să explorez și să contribui la lumea fascinantă a dezvoltării web.
+      
+      Navighează prin site-ul meu și descoperă munca mea de până acum. Dacă dorești să discutăm oportunități de colaborare sau ai nevoie de serviciile mele, te rog să mă contactezi prin formularul de contact sau să utilizezi informațiile de mai jos.
+      
+      Mulțumesc că ai ales să vizitezi site-ul meu și sper să te impresionez cu creațiile mele și abilitățile mele în dezvoltarea web!</p>
+      <br>
+      <a href="{% url 'about' %}"><button class="btn btn-outline-secondary add-btn update-cart">Citeste mai mult</button></a>
+  </div>
+  <br>
+  <h2>Ofertele săpamânii!</h2>
+  <br>
+  <div class="row">
+    {% for product in products %}
+      {% if forloop.counter <= 3 %}
+        <div class="col-lg-4">
+          <img class="thumbnail" src="{{product.imageURL}}">
+          <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <hr>
+    
+            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+            
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+    
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <br>
+  <div class="benefits-container">
+    <h2>Avantajele site-ului nostru</h2>
+    <ul class="benefits-list">
+      <li class="benefit-item">
+        <h4>Experiență de cumpărare simplă și rapidă</h4>
+        <p>Beneficiați de o interfață intuitivă și navigare ușoară pentru a găsi rapid produsele dorite.</p>
+      </li>
+      <li class="benefit-item">
+        <h4>Produse de calitate superioară</h4>
+        <p>Oferim doar produse de înaltă calitate, selectate cu atenție pentru a satisface cerințele clienților noștri.</p>
+      </li>
+      <li class="benefit-item">
+        <h4>Livrare rapidă și sigură</h4>
+        <p>Vă asigurăm o livrare promptă și sigură a produselor comandate, astfel încât să le puteți utiliza cât mai curând posibil.</p>
+      </li>
+      <a href="{% url 'store' %}"><button class="btn btn-outline-success">Vezi produsele noastre </button></a>
+    </ul>
+  </div>
+{% endblock %}
